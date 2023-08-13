@@ -1,0 +1,14 @@
+img
+
+*.o
+*.ko
+*.elf
+a.out
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.log
+Makefile
+CMakeCache.txt
+.vscode/
