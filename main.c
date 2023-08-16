@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     gtk_widget_show(window);
     g_signal_connect(window, "destroy", G_CALLBACK(on_close_window), NULL);
 
-    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+    box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 
     image = gtk_image_new();
     gtk_box_pack_start(GTK_BOX(box), image, TRUE, TRUE, 0);
@@ -41,16 +41,25 @@ int main(int argc, char **argv) {
     if (argc > 1) {
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(argv[1], NULL);
         if (pixbuf == NULL) {
-            g_print("Failed to load image\n");
+            GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
+            GtkWidget *dialog = gtk_message_dialog_new(
+                NULL,
+                GTK_DIALOG_MODAL,
+                GTK_MESSAGE_ERROR,
+                GTK_BUTTONS_OK,
+                "Failed to load image: invalid or non-existent file"
+            );
+            gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_destroy(dialog);
 
             return -1;
         }
-        
+   
         gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
 
+        GdkScreen *screen = gdk_screen_get_default();
         int image_width = gdk_pixbuf_get_width(pixbuf);
         int image_height = gdk_pixbuf_get_height(pixbuf);
-        GdkScreen *screen = gdk_screen_get_default();
         int screen_width = gdk_screen_get_width(screen);
         int screen_height = gdk_screen_get_height(screen);
 
