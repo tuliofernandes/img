@@ -55,12 +55,11 @@ int main(int argc, char **argv) {
         }
 
         char *file_name = strrchr(argv[1], '/') + 1;
-        file_name = strtok((char *)file_name, ".");
         char new_window_title[255];
 
-        sprintf(new_window_title, "%s - img", file_name);
-        gtk_window_set_title(GTK_WINDOW(window), new_window_title);
+        sprintf(new_window_title, "%s", file_name);
 
+        gtk_window_set_title(GTK_WINDOW(window), new_window_title);
         gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
 
         GdkScreen *screen = gdk_screen_get_default();
