@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall `pkg-config --cflags gtk+-3.0`
 LDFLAGS = `pkg-config --libs gtk+-3.0`
 TARGET = img
-SRC = main.c
+SRC = src/main.c
 DESKTOP_FILE = img.desktop
 
 all: $(TARGET)

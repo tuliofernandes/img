@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Makefile
 - File name in the window title
 - Window size calculation based on the image size
 - Image exhibition
