@@ -9,6 +9,5 @@ Thumbs.db
 *.swp
 *.bak
 *.log
-Makefile
 CMakeCache.txt
 .vscode/
