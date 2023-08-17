@@ -10,7 +10,7 @@ static void on_close_window() {
 
 static void usage() {
     puts("Usage: img [OPÇÃO]... [ARQUIVO]...");
-    puts("A simple image viewer");
+    puts("A minimalist image viewer");
     puts("\n  --help  display this help and exit\n");
     puts("Examples:");
     puts("\n  img /path/to/file");
@@ -54,7 +54,13 @@ int main(int argc, char **argv) {
 
             return -1;
         }
-   
+
+        char *file_name = strrchr(argv[1], '/') + 1;
+        char new_window_title[255];
+
+        sprintf(new_window_title, "%s - img", file_name);
+        gtk_window_set_title(GTK_WINDOW(window), new_window_title);
+
         gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
 
         GdkScreen *screen = gdk_screen_get_default();
