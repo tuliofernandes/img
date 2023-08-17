@@ -56,6 +56,7 @@ int main(int argc, char **argv) {
         }
 
         char *file_name = strrchr(argv[1], '/') + 1;
+        file_name = strtok((char *)file_name, ".");
         char new_window_title[255];
 
         sprintf(new_window_title, "%s - img", file_name);
