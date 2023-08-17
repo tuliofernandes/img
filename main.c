@@ -41,7 +41,6 @@ int main(int argc, char **argv) {
     if (argc > 1) {
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(argv[1], NULL);
         if (pixbuf == NULL) {
-            GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
             GtkWidget *dialog = gtk_message_dialog_new(
                 NULL,
                 GTK_DIALOG_MODAL,
