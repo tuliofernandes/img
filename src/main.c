@@ -9,7 +9,7 @@ static void on_close_window() {
 }
 
 static void usage() {
-    puts("Usage: img [OPÇÃO]... [ARQUIVO]...");
+    puts("Usage: img [OPTION]... [FILE]...");
     puts("A minimalist image viewer");
     puts("\n  --help  display this help and exit\n");
     puts("Examples:");
